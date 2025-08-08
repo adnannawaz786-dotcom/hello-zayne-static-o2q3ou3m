@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hello Zayne - A simple greeting page">
+    <title>Hello Zayne</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main class="container" role="main">
+        <div class="greeting-card">
+            <div class="greeting-content">
+                <h1 class="greeting-title" tabindex="0">
+                    Hello, <span class="highlight">Zayne</span>!
+                </h1>
+                <p class="greeting-subtitle">
+                    Welcome to your personalized greeting page
+                </p>
+                <div class="decorative-elements" aria-hidden="true">
+                    <div class="circle circle-1"></div>
+                    <div class="circle circle-2"></div>
+                    <div class="circle circle-3"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Animated background elements -->
+        <div class="background-animation" aria-hidden="true">
+            <div class="floating-element floating-1"></div>
+            <div class="floating-element floating-2"></div>
+            <div class="floating-element floating-3"></div>
+            <div class="floating-element floating-4"></div>
+        </div>
+    </main>
+    
+    <footer class="footer" role="contentinfo">
+        <p class="footer-text">Made with ❤️ for Zayne</p>
+    </footer>
+    
+    <script>
+        // Add entrance animation on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const greetingCard = document.querySelector('.greeting-card');
+            const greetingTitle = document.querySelector('.greeting-title');
+            
+            // Trigger animations
+            setTimeout(() => {
+                greetingCard.classList.add('animate-in');
+            }, 100);
+            
+            setTimeout(() => {
+                greetingTitle.classList.add('animate-text');
+            }, 600);
+            
+            // Add keyboard interaction for accessibility
+            greetingTitle.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    this.classList.add('pulse');
+                    setTimeout(() => {
+                        this.classList.remove('pulse');
+                    }, 600);
+                }
+            });
+        });
+        
+        // Add smooth scroll behavior for focus management
+        document.addEventListener('focusin', function(e) {
+            e.target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+            });
+        });
+    </script>
+</body>
+</html>
